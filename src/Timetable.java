@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Timetable {
     private static final Map<Coach, Integer> allCoaches = new HashMap<>();
-    private static final Map<DayOfWeek, TreeMap<TimeOfDay, List <TrainingSession>>> timetable = new HashMap<>();
+    private static final Map<DayOfWeek, TreeMap<TimeOfDay, List<TrainingSession>>> timetable = new HashMap<>();
 
 
     public static void addNewTrainingSession(TrainingSession trainingSession) {
@@ -14,10 +14,10 @@ public class Timetable {
             timetable.get(trainingSession.getDayOfWeek()).put(trainingSession.getTimeOfDay(), new ArrayList<>());
         }
 
-        List <TrainingSession> training = timetable.
-                get(trainingSession.getDayOfWeek()).get(trainingSession.getTimeOfDay()) ;
+        List<TrainingSession> training = timetable.
+                get(trainingSession.getDayOfWeek()).get(trainingSession.getTimeOfDay());
         boolean check = false;
-        for (TrainingSession t: training) {
+        for (TrainingSession t : training) {
             if (t.equals(trainingSession)) {
                 check = true;
                 break;
@@ -32,7 +32,7 @@ public class Timetable {
         }
     }
 
-    public static TreeMap<TimeOfDay, List <TrainingSession>> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
+    public static TreeMap<TimeOfDay, List<TrainingSession>> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
         if (timetable.isEmpty()) {
             System.out.println("Пока что список пуст");
             return null;
@@ -58,9 +58,9 @@ public class Timetable {
             return null;
         }
 
-        for (TreeMap<TimeOfDay, List <TrainingSession>> days: timetable.values()) {
-            for (List <TrainingSession> time: days.values()) {
-                for (TrainingSession session: time) {
+        for (TreeMap<TimeOfDay, List<TrainingSession>> days : timetable.values()) {
+            for (List<TrainingSession> time : days.values()) {
+                for (TrainingSession session : time) {
                     for (Map.Entry<Coach, Integer> entry : allCoaches.entrySet()) {
                         if (entry.getKey().equals(session.getCoach())) {
                             allCoaches.put(entry.getKey(), entry.getValue() + 1);

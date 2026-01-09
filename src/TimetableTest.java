@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ public class TimetableTest {
 
 
     @Test
-     void testGetTrainingSessionsForDaySingleSession() {
+    void testGetTrainingSessionsForDaySingleSession() {
         Group group = new Group("Акробатика для детей", Age.CHILD, 60);
         Coach coach = new Coach("Васильев", "Николай", "Сергеевич");
         TrainingSession singleTrainingSession = new TrainingSession(group, coach,
@@ -27,7 +26,7 @@ public class TimetableTest {
         trainingSessions.add(singleTrainingSession);
         timetableForExample.put(singleTrainingSession.getDayOfWeek(), new TreeMap<>());
         timetableForExample.get(singleTrainingSession.getDayOfWeek()).
-                put(singleTrainingSession.getTimeOfDay(),trainingSessions);
+                put(singleTrainingSession.getTimeOfDay(), trainingSessions);
 
         Timetable.addNewTrainingSession(singleTrainingSession);
 
@@ -59,7 +58,6 @@ public class TimetableTest {
         Timetable.addNewTrainingSession(mondayChildTrainingSession);
         Timetable.addNewTrainingSession(thursdayChildTrainingSession);
         Timetable.addNewTrainingSession(saturdayChildTrainingSession);
-
 
 
         assertEquals(1, Objects.requireNonNull(Timetable.getTrainingSessionsForDay(DayOfWeek.MONDAY)).size(),

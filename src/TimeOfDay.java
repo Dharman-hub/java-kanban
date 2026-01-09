@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class TimeOfDay implements Comparable<TimeOfDay>{
+public class TimeOfDay implements Comparable<TimeOfDay> {
 
     //часы (от 0 до 23)
     private final int hours;
