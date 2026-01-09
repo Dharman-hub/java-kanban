@@ -25,8 +25,8 @@ public class TimetableTest {
         List<TrainingSession> trainingSessions = new ArrayList<>();
         trainingSessions.add(singleTrainingSession);
         timetableForExample.put(singleTrainingSession.getDayOfWeek(), new TreeMap<>());
-        timetableForExample.get(singleTrainingSession.getDayOfWeek()).
-                put(singleTrainingSession.getTimeOfDay(), trainingSessions);
+        timetableForExample.get(singleTrainingSession.getDayOfWeek())
+                .put(singleTrainingSession.getTimeOfDay(), trainingSessions);
 
         Timetable.addNewTrainingSession(singleTrainingSession);
 

@@ -14,7 +14,8 @@ public class Timetable {
             timetable.get(trainingSession.getDayOfWeek()).put(trainingSession.getTimeOfDay(), new ArrayList<>());
         }
 
-        List<TrainingSession> training = timetable.get(trainingSession.getDayOfWeek()).get(trainingSession.getTimeOfDay());
+        List<TrainingSession> training = timetable.get(trainingSession.getDayOfWeek())
+                .get(trainingSession.getTimeOfDay());
         boolean check = false;
         for (TrainingSession t : training) {
             if (t.equals(trainingSession)) {
