@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menu {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -88,6 +88,7 @@ public class Menu {
         }
         return coach;
     }
+
     public static DayOfWeek createNewDay(Scanner scanner) {
         System.out.println("Выберите день недели");
         System.out.println("1- Понедельник");
