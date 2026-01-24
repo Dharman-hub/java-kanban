@@ -33,7 +33,7 @@ public class TimetableTest {
         assertEquals(timetableForExample.get(DayOfWeek.MONDAY), Timetable.getTrainingSessionsForDay(DayOfWeek.MONDAY),
                 "TreeMap должны быть одинаковыми");
 
-        assertNull(Timetable.getTrainingSessionsForDay(DayOfWeek.TUESDAY),
+        assertEquals(new TreeMap<>(), Timetable.getTrainingSessionsForDay(DayOfWeek.TUESDAY),
                 "За вторник должно вернуться null тренировок");
     }
 
@@ -106,7 +106,8 @@ public class TimetableTest {
 
     @Test
     void testGetCountByCoachesEmpty() {
-        assertNull(Timetable.getCountByCoaches(), "Если расписание пустое, метод должен возвращать null");
+        assertEquals(new ArrayList<>(), Timetable.getCountByCoaches(),
+                "Если расписание пустое, метод должен возвращать пустую List");
     }
 
     @Test

@@ -15,11 +15,8 @@ public class Main {
                     break;
                 case 2:
                     DayOfWeek day1 = createNewDay(scanner);
-                    if (Timetable.getTrainingSessionsForDay(day1) == null) {
-                        System.out.println("В этот день нет тренировок");
-                    } else {
-                        System.out.println(Timetable.getTrainingSessionsForDay(day1));
-                    }
+                    System.out.println(Timetable.getTrainingSessionsForDay(day1));
+
                     break;
                 case 3:
                     DayOfWeek day = createNewDay(scanner);
