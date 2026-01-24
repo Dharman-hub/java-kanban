@@ -27,7 +27,7 @@ public class Timetable {
         if (check) {
             System.out.println("Такая тренировка уже есть");
         } else {
-            timetable.get(trainingSession.getDayOfWeek()).get(trainingSession.getTimeOfDay()).add(trainingSession);
+            training.add(trainingSession); // Убрал лишние строки кода
             System.out.println("Тренировка была добавлена");
         }
     }
@@ -35,7 +35,11 @@ public class Timetable {
     public static TreeMap<TimeOfDay, List<TrainingSession>> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
         if (timetable.isEmpty()) {
             System.out.println("Пока что список пуст");
-            return null;
+            return new TreeMap<>(); // Заменил null на пустую мапу
+        }
+        if (!timetable.containsKey(dayOfWeek)) {
+            System.out.println("В этот день нет тренировок"); // добавил проверку на конкретный день
+            return new TreeMap<>();
         }
         return timetable.get(dayOfWeek);
     }
@@ -43,19 +47,19 @@ public class Timetable {
     public static List<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         if (timetable.isEmpty()) {
             System.out.println("Пока что список пуст");
-            return null;
+            return new ArrayList<>(); // Заменил null на пустой лист
         }
         if (timetable.containsKey(dayOfWeek)) {
             return timetable.get(dayOfWeek).getOrDefault(timeOfDay, null);
         } else {
-            return null;
+            return new ArrayList<>(); // Заменил null на пустой лист
         }
     }
 
     public static List<CounterOfTrainings> getCountByCoaches() {
         if (timetable.isEmpty()) {
             System.out.println("Пока что список пуст");
-            return null;
+            return new ArrayList<>(); // Заменил null на пустой лист
         }
 
         for (TreeMap<TimeOfDay, List<TrainingSession>> days : timetable.values()) {
